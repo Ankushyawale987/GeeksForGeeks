@@ -21,7 +21,9 @@ class MaxLenZeroSumSub
             GfG g = new GfG();
             System.out.println(g.maxLen(arr, n));
             T--;
-        }
+        
+System.out.println("~");
+}
     }
 }
 // } Driver Code Ends
@@ -32,18 +34,19 @@ class GfG
     int maxLen(int arr[], int n)
     {
         // Your code here
-        Map<Integer, Integer> map = new HashMap<>();
+        HashMap<Integer, Integer> list = new HashMap<>();
         int sum = 0;
         int maxi = 0;
+        
         for(int i=0;i<n;i++){
             sum += arr[i];
             if(sum == 0){
                 maxi = i + 1;
             }else{
-                if(map.get(sum) != null){
-                    maxi = Math.max(maxi, i - map.get(sum));
+                if(list.get(sum) != null){
+                    maxi = Math.max(maxi, i - list.get(sum));
                 }else{
-                    map.put(sum, i);
+                    list.put(sum, i);
                 }
             }
         }
